@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Three.js Terrain App</title>
+  <title>Three.js Terrain App with Axis Helper</title>
   <style>
     body, html { margin: 0; padding: 0; overflow: hidden; }
     #ui { position: absolute; top: 10px; left: 10px; background: rgba(255, 255, 255, 0.8); padding: 10px; border-radius: 4px; }
@@ -32,6 +32,10 @@
 
     const controls = new OrbitControls(camera, renderer.domElement);
 
+    // Add Axis Helper
+    const axesHelper = new THREE.AxesHelper(5);
+    scene.add(axesHelper);
+
     const latInput = document.getElementById('lat');
     const lonInput = document.getElementById('lon');
     const zoomInput = document.getElementById('zoom');
@@ -47,7 +51,6 @@
     }
 
     async function getTerrainTexture(x, y, z) {
-    //   const tileUrl = `https://tile.openstreetmap.org/${z}/${x}/${y}.png`;
       const tileUrl = `https://tile.opentopomap.org/${z}/${x}/${y}.png`;
       const loader = new THREE.TextureLoader();
       return loader.loadAsync(tileUrl);
