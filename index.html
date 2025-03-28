@@ -90,11 +90,10 @@
       geometry.computeVertexNormals();
 
       const texture = await getTerrainTexture(x, y, zoom);
-      const material = new THREE.MeshStandardMaterial({ map: texture, side: THREE.DoubleSide });
+      const material = new THREE.MeshBasicMaterial({ map: texture, side: THREE.DoubleSide });
       currentMesh = new THREE.Mesh(geometry, material);
       currentMesh.rotation.x = -Math.PI / 2;
       scene.add(currentMesh);
-      scene.add(new THREE.AmbientLight(0xffffff, 1.0));
     }
 
     function updateTerrain() {
