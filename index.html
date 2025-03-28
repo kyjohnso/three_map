@@ -41,8 +41,14 @@
 
     let currentMesh;
 
+    function getTileSizeMeters(lat, zoom) {
+      const earthCircumference = 40075017;
+      return (earthCircumference * Math.cos(lat * Math.PI / 180)) / Math.pow(2, zoom);
+    }
+
     async function getTerrainTexture(x, y, z) {
-      const tileUrl = `https://tile.openstreetmap.org/${z}/${x}/${y}.png`;
+    //   const tileUrl = `https://tile.openstreetmap.org/${z}/${x}/${y}.png`;
+      const tileUrl = `https://tile.opentopomap.org/${z}/${x}/${y}.png`;
       const loader = new THREE.TextureLoader();
       return loader.loadAsync(tileUrl);
     }
@@ -67,7 +73,7 @@
         const g = pixels[i + 1];
         const b = pixels[i + 2];
         const height = (r * 256 + g + b / 256) - 32768;
-        heights.push(height / 1000);
+        heights.push(height);
       }
       return heights;
     }
@@ -79,13 +85,15 @@
         scene.remove(currentMesh);
       }
 
-      const tileSize = 10;
+      const tileSizeMeters = getTileSizeMeters(lat, zoom);
       const x = long2tile(lon, zoom);
       const y = lat2tile(lat, zoom);
-      const geometry = new THREE.PlaneGeometry(tileSize, tileSize, 255, 255);
+      const geometry = new THREE.PlaneGeometry(10, 10, 255, 255);
       const heights = await getTerrainHeight(x, y, zoom);
+
+      const scaleHeight = 10 / tileSizeMeters;
       geometry.attributes.position.array.forEach((_, idx) => {
-        geometry.attributes.position.array[idx * 3 + 2] = heights[idx];
+        geometry.attributes.position.array[idx * 3 + 2] = heights[idx] * scaleHeight;
       });
       geometry.computeVertexNormals();
 
