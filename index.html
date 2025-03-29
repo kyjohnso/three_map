@@ -8,6 +8,19 @@
     body, html { margin: 0; padding: 0; overflow: hidden; }
     #ui { position: absolute; top: 10px; left: 10px; background: rgba(255, 255, 255, 0.8); padding: 10px; border-radius: 4px; }
     input { width: 100px; }
+    #locationName {
+      position: absolute;
+      top: 10px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: rgba(0, 0, 0, 0.6);
+      color: white;
+      padding: 6px 12px;
+      border-radius: 4px;
+      font-family: Arial, sans-serif;
+      font-size: 14px;
+      pointer-events: none;
+    }
   </style>
 </head>
 <body>
@@ -16,7 +29,10 @@
     <label>Lon: <input type="text" id="lon" value="86.9250"></label><br>
     <label>Zoom: <input type="text" id="zoom" value="12"></label><br>
     <button id="updateBtn">Update</button>
+    <button id="randomBtn">Random Location</button>
   </div>
+
+  <div id="locationName"></div>
 
   <script type="module" src="./script.js"></script>
 </body>
