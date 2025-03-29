@@ -41,23 +41,25 @@
 
     /* Label + Input styling */
     label {
+      /* Put label text on the left, input on the right */
       display: flex;
       align-items: center;
+      justify-content: space-between;
       font-size: 14px;
-      gap: 6px;
-      margin-bottom: 4px;
     }
 
-    input[type="number"] {
+    label input {
+      text-align: right; /* Right-align the text inside the input */
+      margin-left: 10px; /* Small spacing between label text and input */
+      width: 100px;
       border: 1px solid #ccc;
       border-radius: 4px;
       padding: 4px 8px;
       font-size: 14px;
-      min-width: 80px;
       transition: border-color 0.2s ease;
     }
 
-    input[type="number"]:focus {
+    label input:focus {
       outline: none;
       border-color: #888;
     }
@@ -73,7 +75,6 @@
       transition: background-color 0.2s ease, color 0.2s ease;
       background: #4a90e2;
       color: #fff;
-      margin-top: 4px;
     }
 
     button:hover {
@@ -100,15 +101,15 @@
 <body>
   <div id="ui">
     <label>
-      Lat: 
+      Lat:
       <input type="number" id="lat" value="27.9881" step="any">
     </label>
     <label>
-      Lon: 
+      Lon:
       <input type="number" id="lon" value="86.9250" step="any">
     </label>
     <label>
-      Zoom: 
+      Zoom:
       <input type="number" id="zoom" value="12" step="1">
     </label>
     <button id="updateBtn">Update</button>

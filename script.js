@@ -5,13 +5,14 @@ const locations = [
   { "name": "Mount Everest, Himalayas", "lat": 27.9881, "lon": 86.9250, "zoom": 12 },
   { "name": "Grand Canyon, USA", "lat": 36.1069, "lon": -112.1129, "zoom": 12 },
   { "name": "Geirangerfjord, Norway", "lat": 62.1049, "lon": 7.0050, "zoom": 12 },
-  { "name": "Uluru (Ayers Rock), Australia", "lat": -25.3444, "lon": 131.0369, "zoom": 14 },
+  { "name": "Uluru (Ayers Rock), Australia", "lat": -25.3444, "lon": 131.0369, "zoom": 12 },
   { "name": "Matterhorn, Swiss Alps", "lat": 45.9763, "lon": 7.6586, "zoom": 12 },
   { "name": "Mauna Kea, Hawaii", "lat": 19.8207, "lon": -155.4681, "zoom": 12 },
   { "name": "Dead Sea Region", "lat": 31.5590, "lon": 35.4732, "zoom": 12 },
   { "name": "Torres del Paine, Patagonia, Chile", "lat": -50.9423, "lon": -73.4068, "zoom": 12 },
   { "name": "Bryce Canyon, Utah, USA", "lat": 37.5930, "lon": -112.1871, "zoom": 12 },
-  { "name": "Mount Fuji, Japan", "lat": 35.3606, "lon": 138.7274, "zoom": 12 }
+  { "name": "Mount Fuji, Japan", "lat": 35.3606, "lon": 138.7274, "zoom": 12 },
+  { "name": "Denali, Alaska", "lat": 63.0692, "lon": -151.0070, "zoom": 12 }
 ];
 
 const scene = new THREE.Scene();
